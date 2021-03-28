@@ -1,0 +1,54 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  z-index: -1;
+  animation: fadeIn 0.8s linear;
+}
+
+section {
+  margin: 10% 35%;
+  text-align: center;
+  width: 30%;
+  padding: 10% 0;;
+  border: solid 1px rgb(220, 220, 220);
+  background-color: rgb(200, 200, 200, 0.5);
+}
+
+.greeting-form {
+  display: none;
+}
+
+.showing {
+  display: block;
+}
+
+.todo-list {
+    padding: 0 2rem;
+}
+
+.todo ul li {
+  list-style: none;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
