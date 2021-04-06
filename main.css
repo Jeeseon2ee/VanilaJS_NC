@@ -1,48 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
   margin: 0;
   height: 100%;
+  font-family: 'Raleway', sans-serif;
 }
 
 .bgImage {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-size: cover;
   z-index: -1;
+  filter: opacity(0.85);
+  filter: grayscale(0.3);
   animation: fadeIn 0.8s linear;
 }
 
 section {
-  margin: 10% 35%;
+  margin: 0 auto;
   text-align: center;
-  width: 30%;
-  padding: 10% 0;;
-  border: solid 1px rgb(220, 220, 220);
-  background-color: rgb(200, 200, 200, 0.5);
+  position: relative;
+  top: 25%;
+}
+
+.clock,
+.weather-container,
+.greeting,
+.todo {
+  animation: downUp 0.9s linear;
+}
+
+.clock h1 {
+  font-family: 'Jost', sans-serif;
+  font-size: 5.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.weather-container {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.weather {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+section input {
+  width: 22rem;
+  height: 2.5rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  color: rgb(140, 140, 140);
+  outline: none;
+  border: solid 1px grey;
+  border-radius: 4px;
+  text-indent: 2px;
 }
 
 .greeting-form {
   display: none;
 }
 
+.greeting-fill {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0;
+}
+
 .showing {
   display: block;
 }
 
-.todo-list {
-    padding: 0 2rem;
+.todo input {
+  margin: 1.2rem 0;
 }
 
-.todo ul li {
+.todo-list {
+  padding: 0;
+  margin: 0 auto;
+  width: 22rem;
+}
+
+.todo-list li {
   list-style: none;
-  text-align: center;
+  text-align: left;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.todo-list button {
+  font-size: 1.5rem;
+  padding: 0;
+  padding-right: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
@@ -50,5 +114,15 @@ section {
     opacity: 0;
   } to {
     opacity: 1;
+  }
+}
+
+@keyframes downUp {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
