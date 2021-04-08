@@ -26,7 +26,7 @@ function fillTodo (text) {
 
   span.innerText = text;
 
-  deleteBtn.innerText = "❌";
+  deleteBtn.innerText = "✔";
   deleteBtn.addEventListener("click", deleteTodo);
 
   li.appendChild(deleteBtn);

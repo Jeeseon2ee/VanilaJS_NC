@@ -27,22 +27,26 @@ body {
 }
 
 section {
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
-  position: relative;
-  top: 25%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
 }
 
 .clock,
 .weather-container,
 .greeting,
 .todo {
-  animation: downUp 0.9s linear;
+  animation: upDown 0.8s linear;
 }
 
 .clock h1 {
   font-family: 'Jost', sans-serif;
-  font-size: 5.5rem;
+  font-size: 6rem;
   font-weight: 400;
   margin: 0;
 }
@@ -64,9 +68,15 @@ section input {
   font-weight: 500;
   color: rgb(140, 140, 140);
   outline: none;
-  border: solid 1px grey;
+  border: none;
   border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   text-indent: 2px;
+}
+
+input:focus,
+input:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2.4px 2.4px 3.2px;
 }
 
 .greeting-form {
@@ -91,13 +101,36 @@ section input {
   padding: 0;
   margin: 0 auto;
   width: 22rem;
+  height: 15rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.todo-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background: rgb(180, 180, 180);
+  border-radius: 5px;
 }
 
 .todo-list li {
   list-style: none;
   text-align: left;
   font-size: 1.5rem;
-  margin: 1rem 0;
+  font-weight: 300;
+  padding: 0.5rem 0;
+  animation: upDown 0.8s linear;
+}
+
+.todo-list li:hover,
+.todo-list li:active {
+  transform: translateY(-1.25px);
 }
 
 .todo-list button {
@@ -106,6 +139,7 @@ section input {
   padding-right: 0.5rem;
   background: none;
   border: none;
+  outline: none;
   cursor: pointer;
 }
 
@@ -117,12 +151,24 @@ section input {
   }
 }
 
-@keyframes downUp {
+@keyframes upDown {
   from {
     opacity: 0;
-    transform: translateY(3px);
+    transform: translateY(-3px);
   } to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 57%;
+  }
+}
+
+@media (min-height: 1200px) {
+  html {
+    font-size: 80%;
   }
 }
